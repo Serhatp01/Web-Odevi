@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salim serhat polat</title>
+    <link rel="stylesheet" href="main.css"> 
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Hakkımda.html">Hakkımda</a></li>
+                <li><a href="İlgilerim.html">İlgi Alanlarım</a></li>
+                <li><a href="Mirasimiz.html">Mirasımız</a></li>
+                <li><a href="KisiselBilgiler.html">Kişisel Bilgilerim</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <h1>ŞEHRİM</h1>
+        </div> 
+    </header>
+
+    <section>
+        <div>
+        </div>
+
+        <aside>
+                  
+        </aside>
+        <article class="article-container">
+            
+
+        </article>
+
+        <article class="article-container">
+            <br>
+            <p>Adana çok sevdiğim doğup büyüdüğüm şehirdir. Çok sıcak olması ve kebabından dolayı herkes tanır. Fotoğraflarla birlikte ufak bir tur yapalım.</p>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="fotolar/adana.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="fotolar/adanahavadan2.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="fotolar/taskopru.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="fotolar/vardakoprusu.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="fotolar/kapıkaya.jpg" alt="">
+                    </div>
+                </div>
+                <div class="slider-buttons">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+            <p>Aslen ise Niğde'nin Kılan Köyü'ndenim.</p>
+            <img src="fotolar/kılan.jpeg" alt="Niğde">
+            <br><br>
+            <p>Fotoğraflardan da gördüğünüz üzere doğduğum yer de memleketim de çok güzel. Bu yüzden şanslıyım.</p>
+            <p>Ayrıca Kılan'da topraklar çok verimlidir ve birçok sebze-meyve yetişebilir.</p>
+            <p>Köyümüzle alakalı daha fazla bilgi sahibi olmak ve neler yetiştiğini görmek için<a href="https://www.instagram.com/kilanyaylasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none;" target="_blank"> <b>instagram</b></a> adresine gidebilirsiniz.</p>
+        </article>
+    </section>
+
+    <footer>
+        <div>
+            <p>ŞEHRİM</p>
+        </div>
+    </footer>
+    <script>
+        let slideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) {
+                slideIndex = 0;
+            }
+             else if (index < 0) {
+                slideIndex = totalSlides - 1;
+            } 
+            else {
+                slideIndex = index;
+            }
+            slides.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
+        }
+
+        function nextSlide() {
+            showSlide(slideIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(slideIndex - 1);
+        }
+
+        showSlide(slideIndex); 
+    </script>
+</body>
+</html>
