@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salim serhat polat</title>
+    <link rel="stylesheet" href="main.css"> 
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Hakkımda.html">Hakkımda</a></li>
+        </ul>
+        </nav>
+        <div>
+            <h1>Giriş Yap</h1>
+        </div> 
+    </header>
+    <section>
+        <aside></aside>
+        <article>
+            <br>
+            <form action="kayit.php" method="post">
+                Adı*: <br>
+                <input type="text" name="adi" autofocus required><br>
+                Soyadı*: <br>
+                <input type="text" name="soyadi" required><br>
+                e-posta Adresi*:<br>
+                <input type="email" name="email" required>
+                <br>
+                Telefon Numarası: <br>
+                <input type="text" name="telno" size="11"><br>
+                Şifre:<br>
+                <input type="password" name="sifre" pattern=[0-9]{6} placeholder="En az 6 'harften' oluşsun">
+                <br>
+                <input type="radio" name="cinsiyet" value="erkek" checked>Erkek<br>
+                <input type="radio" name="cinsiyet" value="kadin">Kadın
+                <br>
+                <input type="submit"
+                    formaction="kayit.php"
+                    formmethod="post" 
+                    value="GİRİŞ YAP">
+            </form>
+            <form>
+            </form>
+            <br>                
+        </article>
+    </section>
+    <footer>
+        <div>
+            <p>Giriş Yap</p>
+         </div>
+    </footer>
+</body>
+</html>
+                    

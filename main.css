@@ -110,6 +110,11 @@ article img {
     height: auto;
 }
 .slider img {
-    width: 150%; /* veya başka bir değer */
+    width: 200%; /* veya başka bir değer */
     vertical-align: middle;
+}
+.slides img {
+    width: 100%;  /*Slider fotoğraf boyut ayarlama*/
+    max-height: 400px; 
+    object-fit: cover; 
 }
