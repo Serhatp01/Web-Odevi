@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salim Serhat Polat</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="iletisim.html">Geri Dön</a></li>
+            </ul>
+        </nav>
+        <h1>Gönderilen Mesajlar</h1>
+    </header>
+    <main>
+        <section id="messages-container">
+            <!-- Mesajlar burada gösterilecek -->
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messagesContainer = document.getElementById('messages-container');
+            let messages = JSON.parse(localStorage.getItem('messages')) || [];
+
+            if (messages.length > 0) {
+                messages.forEach((message, index) => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message';
+                    messageDiv.innerHTML = `
+                        <p><strong>Ad Soyad:</strong> ${message.ad}</p>
+                        <p><strong>E-posta:</strong> ${message.email}</p>
+                        <p><strong>Telefon:</strong> ${message.telefon}</p>
+                        <p><strong>Mesaj:</strong> ${message.mesaj}</p>
+                        <hr>
+                    `;
+                    messagesContainer.appendChild(messageDiv);
+                });
+            } else {
+                messagesContainer.innerHTML = '<p>Gönderilen mesaj bulunmamaktadır.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
