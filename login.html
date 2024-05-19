@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="Hakkımda.html">Hakkımda</a></li>
-        </ul>
+            </ul>
         </nav>
         <div>
             <h1>Giriş Yap</h1>
@@ -25,7 +25,7 @@
         <aside></aside>
         <article>
             <br>
-            <form action="kayit.php" method="post">
+            <form id="loginForm" onsubmit="return validateForm()">
                 Adı*: <br>
                 <input type="text" name="adi" autofocus required><br>
                 Soyadı*: <br>
@@ -33,22 +33,18 @@
                 e-posta Adresi*:<br>
                 <input type="email" name="email" required>
                 <br>
-                Telefon Numarası: <br>
-                <input type="text" name="telno" size="11"><br>
-                Şifre:<br>
-                <input type="password" name="sifre" pattern=[0-9]{6} placeholder="En az 6 'harften' oluşsun">
+                Telefon Numarası*:<br>
+                <input type="text" name="telno" pattern="[0-9]{11}" placeholder="11 haneli telefon numarası" required><br>
+                Şifre*:<br>
+                <input type="password" name="sifre" pattern="[0-9]{6}" placeholder="6 haneli rakam" required>
                 <br>
                 <input type="radio" name="cinsiyet" value="erkek" checked>Erkek<br>
                 <input type="radio" name="cinsiyet" value="kadin">Kadın
                 <br>
-                <input type="submit"
-                    formaction="kayit.php"
-                    formmethod="post" 
-                    value="GİRİŞ YAP">
+                <button type="submit">GİRİŞ YAP</button>
             </form>
-            <form>
-            </form>
-            <br>                
+            <br>
+            <p id="successMessage" style="display:none; color:green;">Giriş başarılı!</p>
         </article>
     </section>
     <footer>
@@ -56,6 +52,51 @@
             <p>Giriş Yap</p>
          </div>
     </footer>
+    <script>
+        function validateForm() {
+            const form = document.getElementById('loginForm');
+            const sifre = form['sifre'].value;
+            const telno = form['telno'].value;
+            
+            if (!/^[0-9]{6}$/.test(sifre)) {
+                alert('Şifre 6 haneli olmalı ve sadece rakamlardan oluşmalıdır.');
+                return false;
+            }
+            
+            if (!/^[0-9]{11}$/.test(telno)) {
+                alert('Telefon numarası 11 haneli olmalıdır.');
+                return false;
+            }
+            
+            submitForm();
+            return false; // Formun varsayılan gönderimini durdur
+        }
+
+        function submitForm() {
+            const form = document.getElementById('loginForm');
+            const formData = new FormData(form);
+            
+            // Form verilerini JSON olarak sakla
+            const data = {
+                adi: formData.get('adi'),
+                soyadi: formData.get('soyadi'),
+                email: formData.get('email'),
+                telno: formData.get('telno'),
+                sifre: formData.get('sifre'),
+                cinsiyet: formData.get('cinsiyet')
+            };
+            
+            // Verileri localStorage'de sakla
+            localStorage.setItem('KullanıcıBilgileri', JSON.stringify(data));
+            
+            // Giriş başarılı mesajını göster
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Ana sayfaya yönlendir (2 saniye sonra)
+            setTimeout(function() {
+                window.location.href = 'Hakkımda.html';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
-                    
